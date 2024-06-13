@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Header</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      header {
+        background-color: aquamarine;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .sidebar {
+        display: flex;
+        align-items: center;
+      }
+      .sidebar li {
+        list-style: none;
+        padding: 10px 15px;
+      }
+      .remove {
+        display: none;
+      }
+      .menubar {
+        display: none;
+      }
+      .remove li {
+        list-style: none;
+        padding: 10px 15px;
+      }
+      @media screen and (max-width: 768px) {
+        .humberg {
+          display: none;
+        }
+        .menubar {
+          display: inline;
+        }
+        .remove {
+          display: none;
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 200px;
+          height: 100%;
+          background-color: white;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          padding-top: 20px;
+          box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+        }
+      }
+      @media screen and (min-width: 769px) {
+        .remove {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="box">
+          <div class="logo">
+            <span>ListRace</span>
+          </div>
+          <div class="navbar">
+            <ul class="sidebar">
+              <li class="humberg">Home</li>
+              <li class="humberg">About</li>
+              <li class="humberg">Promo</li>
+              <li class="humberg">Contact</li>
+              <li class="humberg">Product</li>
+              <li class="menubar" onclick="showFunction()">
+                <i class="fa-solid fa-bars"></i>
+              </li>
+            </ul>
+            <ul class="remove">
+              <li class="remove-icon" onclick="hiddenFunction()">
+                <i class="fa-solid fa-xmark"></i>
+              </li>
+              <li>Home</li>
+              <li>About</li>
+              <li>Promo</li>
+              <li>Contact Us</li>
+              <li>Product</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <script>
+      const showBtn = document.querySelector(".remove");
+
+      function showFunction() {
+        showBtn.style.display = "flex";
+      }
+      function hiddenFunction() {
+        showBtn.style.display = "none";
+      }
+      // Ensure the remove menu is hidden when resizing the window back to desktop view
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          showBtn.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

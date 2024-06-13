@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.table {
+  margin-top: 100px;
+  width: 70%;
+}
+.heading th {
+  text-align: left;
+  padding: 22px;
+  font-size: 27px;
+  text-transform: capitalize;
+}
+.imegin-content {
+  padding: 23px;
+}
+.imegin-content p {
+  text-transform: capitalize;
+}
+.imegin-content img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+input {
+  padding: 10px;
+  margin: 0 10px;
+}
+.price {
+  padding: 10px;
+}
+.quantity {
+  padding: 10px;
+}
+.add {
+  margin: 20px;
+  padding: 15px 20px;
+  text-transform: capitalize;
+  background-color: #e07559;
+  color: white;
+  font-size: 20px;
+  border: none;
+}
+.remove{
+  margin: 20px;
+  display: none;
+  padding: 15px 20px;
+  text-transform: capitalize;
+  background-color: #e07559;
+  color: white;
+  font-size: 20px;
+  border: none;
+}
+.text-center{
+  text-align: center  ;
+}
+.table-row{
+  display: none;
+}

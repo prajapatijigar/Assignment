@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Cards</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .container{
+         width: 1200px;
+         margin: 0 auto;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+      }
+      .product-card {
+        display: flex;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 20px;
+        width: 500px;
+      }
+
+      .product-card img {
+        width: 200px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      .product-details {
+        padding: 15px;
+      }
+
+      .product-details h2 {
+        margin-top: 0;
+        font-size: 20px;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+        color: #ffd700; /* Golden color */
+      }
+
+      .rating-value {
+        margin-right: 5px;
+      }
+
+      .rating-count {
+        font-size: 14px;
+        color: #666;
+      }
+
+      .product-details p {
+        margin: 0;
+        font-size: 16px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let api_Url = "https://fakestoreapi.com/products";
+
+        async function fetchData(api_Url) {
+          let container = document.querySelector(".container");
+          container.innerHTML = "";
+
+          try {
+            let fetchApi = await fetch(api_Url);
+            let data = await fetchApi.json();
+            data.forEach((item) => {
+              let card = document.createElement("div");
+              card.classList.add("product-card");
+
+              let img = document.createElement("img");
+              let div = document.createElement("div")
+              img.src = item.image;
+              img.classList.add("img");
+              div.appendChild(img) // Adding img class
+              card.appendChild(div);
+
+              let productDetails = document.createElement("div");
+              productDetails.classList.add("product-details");
+
+              productDetails.innerHTML = `
+        <h2>${item.title}</h2>
+        <h2>${item.category}</h2>
+        <p>${item.description}</p>
+        <div class="rating">
+          <span class="rating-value">${item.rating.rate}</span>
+          <span class="rating-count">${item.rating.count}</span>
+        </div>
+        <p>${item.price}</p>
+      `;
+              card.appendChild(productDetails);
+
+              container.appendChild(card);
+            });
+          } catch (error) {
+            console.log("Error:", error);
+          }
+        }
+        fetchData(api_Url);
+      });
+    </script>
+  </body>
+</html>

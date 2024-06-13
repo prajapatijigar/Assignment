@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper Slider Example</title>
+    <!-- Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        .swiper-container {
+            width: 100%;
+            height: 100vh;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="https://as2.ftcdn.net/v2/jpg/04/61/47/03/1000_F_461470323_6TMQSkCCs9XQoTtyer8VCsFypxwRiDGU.jpg" alt="Image 1">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://as2.ftcdn.net/v2/jpg/04/04/40/49/1000_F_404404954_WGYZtTwswIrXnJl6qVeEFK5UWPFflVB8.jpg" alt="Image 2">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://as2.ftcdn.net/v2/jpg/04/61/47/03/1000_F_461470323_6TMQSkCCs9XQoTtyer8VCsFypxwRiDGU.jpg" alt="Image 3">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://as2.ftcdn.net/v2/jpg/04/08/44/11/1000_F_408441175_zaD2lFdVwhL1xYYKZXnJOQ8xyfWNNWxC.jpg" alt="Image 4">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- Swiper's JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+</html>
